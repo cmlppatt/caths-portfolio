@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cath's Portfolio</title>
+    <link rel="stylesheet" href="https://use.typekit.net/wrj3gbg.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cp-web-logo.png">
+    <style>
+      /* ── Reset ── */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      /* ── Root layout: two fixed columns inside a 100vh frame ── */
+      .project-box {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-weight: 600;
+        color: #0D2BCD;
+        background-color: #FCF4ED;
+      }
+      /* ══════════════════════════════════════
+         BACKGROUND STRIP
+         Tall column of 100vh images behind everything
+      ══════════════════════════════════════ */
+      .bg-strip {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        height: 100vh;
+        overflow: hidden;
+        will-change: transform;
+      }
+      .bg-strip-inner {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        will-change: transform;
+      }
+      .bg-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .bg-slide.website-slide {
+        padding-top: 12vh;
+        margin-left: 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .bg-slide.critique-slide {
+        display: flex;
+        flex-direction: column;
+        margin-top: -4vh;
+        margin-bottom: 4vh;
+      }
+      .bg-slide img.critique-text {
+        margin-bottom: -2vh;
+        width: 35%;
+        z-index: 3;
+        height: auto;
+        object-fit: contain;
+      }
+      .top-gallery,
+      .bottom-gallery {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1vw;
+        width: 100%;
+      }
+      .bottom-gallery{
+        margin-top: -5vh;
+      }
+      .column-style{
+        margin-top: 15vh;
+        flex-direction: column; 
+        padding: 0 2vw; 
+        align-items: center;
+      }
+      .bg-slide img.webpages {
+        width: 25%;
+        height: auto;
+        object-fit: contain;
+      }
+      .bg-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      .bg-slide img.desc-text{
+        width: 45%;
+        height: auto;
+        object-fit: contain;
+        margin-left: 6vw;
+        margin-top: -1vh;
+      }
+      .bg-slide img.compare-text{
+        width: 35%;
+        height: auto;
+        object-fit: contain;
+        margin-left: -37vw;
+        margin-top: -6.5vh;
+      }
+      .scatter-section {
+        background-color: #FCF4ED;
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .image-pile {
+        position: relative;
+        width: 400px;
+        height: 400px;
+      }
+      .scatter-img {
+        position: absolute;
+        width: 400px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transition: transform 1s ease;
+      }
+      /* scattered positions */
+      .image-pile.scatter .img1 {
+        /* hockey-mem pic */
+        transform: translate(-380px, -360px) rotate(-2deg);
+        width: 380px;
+      }
+      .image-pile.scatter .img5 {
+        /* awards pic */
+        transform: translate(-110px, 20px) rotate(-5deg);
+        width: 350px;
+      }
+      .image-pile.scatter .img3 {
+        /* beer pic */
+        transform: translate(-420px, -20px) rotate(3deg);
+        width: 350px;
+      }
+      .image-pile.scatter .img4 {
+        /* flyers pic */
+        transform: translate(200px, -15px) rotate(-5deg);
+        width: 250px;
+      }
+      .image-pile.scatter .img2 {
+        /* sam pic */
+        transform: translate(-40px, -410px) rotate(5deg);
+        width: 500px;
+      }
+      .laptop-frame {
+        position: relative;
+        width: 60vw;
+        margin-top: -3vh;
+        margin-left: -3.2vw;
+      }
+      .laptop-frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .laptop-screen-area {
+        position: absolute;
+        z-index: 1;
+        /* adjust these once the frame is centered */
+        top: 14%;
+        left: 11%;
+        width: 78%;
+        height: 70%;
+        overflow: hidden;
+      }
+      .laptop-screen-area iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        pointer-events: none;
+      }
+      .laptop-screen-area:hover iframe {
+        pointer-events: auto;
+      }
+      .phone-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 45vw;
+      }
+      .video-critique {
+        position: absolute;
+        top: 6%;
+        left: 2.5%;
+        width: 95%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 6%;
+        z-index: 2;
+      }
+      .phone-frame {
+        position: relative;
+        z-index: 3;
+        pointer-events: none;
+      }
+      .critique-text,
+      .phone-wrapper {
+        opacity: 0;
+        transform: translateX(60px);
+        transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .critique-slide.critique-visible .critique-text,
+      .critique-slide.critique-visible .phone-wrapper {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .website-header{
+        position: absolute;
+        z-index: 4;
+        display:flex;
+        align-items:center;
+        gap:2.5vw;
+        margin-left: 2vw;
+        margin-top: -2vh;
+      }
+      input[type="checkbox"].toggle { display: none; }
+      .track {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        width: 218px;
+        border-radius: 999px;
+        background: #DDDEE4;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.4s cubic-bezier(.4, 0, .2, 1);
+      }
+      .knob {
+        height: 32px;
+        width: 104px;
+        border-radius: 999px;
+        background: #FCF4ED;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+        position: absolute;
+        left: 4px;
+        transition: transform 0.4s cubic-bezier(.4, 0, .2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .knob-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+        color: #0D2BCD;
+        white-space: nowrap;
+        position: absolute;
+        transition: opacity 0.1s ease;
+      }
+      .knob-label.on { opacity: 0; }
+      .track-side {
+        position: absolute;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+        color: #0D2BCD;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .track-side.left  { right: 22px; }
+      .track-side.right { left: 22px; opacity: 0; }
+      input.toggle:checked + .track                   { background: #DDDEE4; }
+      input.toggle:checked + .track .knob             { transform: translateX(105px); }
+      input.toggle:checked + .track .knob-label.off   { opacity: 0; }
+      input.toggle:checked + .track .knob-label.on    { opacity: 1; }
+      input.toggle:checked + .track .track-side.left  { opacity: 0; }
+      input.toggle:checked + .track .track-side.right { opacity: 1; }
+      /* ══════════════════════════════════════
+         LEFT PANEL
+         Fixed, never scrolls, sits on top of bg
+      ══════════════════════════════════════ */
+      .left-panel {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 18%;
+        height: 100vh;
+        background-color: #FCF4ED;
+        display: flex;
+        flex-direction: column;
+        padding: 4vh 2vw 4vh 2vw;
+        overflow: hidden;
+      }
+      .left-panel .proj-name {
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-size: clamp(10px, 4.5vh, 36px);
+        font-weight: 600;
+        color: #0D2BCD;
+        line-height: 0.9;
+        margin-bottom: 0.8vh;
+      }
+      .left-panel .proj-date {
+        font-family: inter, roboto, sans-serif;
+        font-size: clamp(9px, 2vh, 24px);
+        font-weight: 300;
+        font-style: italic;
+        color: #272932;
+        margin-bottom: 2vh;
+        margin-top: 2vh;
+      }
+      .left-panel .proj-meta {
+        font-family: inter, roboto, sans-serif;
+        font-size: clamp(9px, 2vh, 24px);
+        font-weight: 300;
+        color: #272932;
+        line-height: 1.2;
+        margin-bottom: 1.5vh;
+      }
+      .left-panel .proj-meta strong {
+        font-weight: 600;
+      }
+      .left-panel .software-icon {
+        display: flex;
+        gap: 0.5vw;
+        margin-bottom: 0;
+      }
+      .left-panel .software-icon img {
+        width: clamp(20px, 2.5vw, 36px);
+        height: auto;
+        display: inline-block;
+      }
+      /* ── Timeline ── */
+      .timeline-section {
+        margin-top: 6vh;
+        position: relative;
+        flex: 1;
+        min-height: 0;
+      }
+      /* Vertical line — only spans between dots, not the full panel */
+      .timeline-section::before { display: none; }
+      .tl-items {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+      .tl-items::before {
+        content: '';
+        position: absolute;
+        left: calc(clamp(6px, 0.9vw, 10px) / 2);
+        transform: translateX(-50%);
+        top: calc(clamp(6px, 0.9vw, 10px) / 2);
+        bottom: calc(clamp(10px, 2.5vh, 28px) + clamp(6px, 0.9vw, 10px) / 2);
+        width: 1.5px;
+        background: rgba(13, 43, 205, 0.2);
+      }
+      /* No divider */
+      .tl-divider { display: none; }
+      .tl-item {
+        display: flex;
+        align-items: center;   /* vertically center dot with label */
+        gap: clamp(6px, 0.8vw, 12px);
+        margin-bottom: clamp(10px, 2.5vh, 28px);
+        cursor: pointer;
+        position: relative;
+      }
+      .tl-dot {
+        flex-shrink: 0;
+        width: clamp(6px, 0.9vw, 10px);
+        height: clamp(6px, 0.9vw, 10px);
+        border-radius: 50%;
+        border: 1.5px solid rgba(13, 43, 205, 0.3);
+        background: #FCF4ED;
+        z-index: 1;
+        transition: background 0.25s, border-color 0.25s, transform 0.2s;
+      }
+      .tl-label {
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-size: clamp(9px, 1.6vh, 24px);
+        font-weight: 600;
+        color: rgba(13, 43, 205, 0.35);
+        line-height: 1.4;
+        letter-spacing: 0.04em;
+        transition: color 0.25s;
+      }
+      .tl-item.active .tl-dot   { background: #0D2BCD; border-color: #0D2BCD; transform: scale(1.35); }
+      .tl-item.active .tl-label { color: #0D2BCD; }
+      .tl-item:hover .tl-dot    { border-color: #0D2BCD; }
+      .tl-item:hover .tl-label  { color: rgba(13, 43, 205, 0.7); }
+      /* ══════════════════════════════════════
+         RIGHT PANEL
+         Clips the scrolling strip
+      ══════════════════════════════════════ */
+      .right-panel {
+        position: relative;
+        z-index: 2;
+        flex: 0 0 25%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .panels-strip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        will-change: transform;
+      }
+      .section-panel {
+        width: 100%;
+        min-height: 100vh;
+        padding: 4vh 5% 8vh 5%;
+        background-color: #FCF4ED;
+        display: flex;
+        flex-direction: column;
+        padding-left: 2vw;
+        padding-right: 2vw;
+      }
+      .panel-header {
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-size: clamp(9px, 3vh, 36px);
+        font-weight: 600;
+        color: #0D2BCD;
+        line-height: 1.2;
+        margin-bottom: 1vh;
+        flex-shrink: 0;
+      }
+      .panel-divider {
+        border: none;
+        border-top: 2px solid #0D2BCD;
+        margin-bottom: 2vh;
+        flex-shrink: 0;
+      }
+      .project-info {
+        font-family: inter, roboto, sans-serif;
+        font-size: clamp(9px, 2vh, 24px);
+        font-weight: 300;
+        color: #272932;
+        line-height: 1.2;
+      }
+      .project-title {
+        font-weight: 600;
+        color: #272932;
+      }
+      .project-info ul {
+        padding-left: 1.2em;
+        margin-top: 1vh;
+      }
+      .project-info li {
+        margin-bottom: 1.4vh;
+        margin-left: 1vw;
+      }
+      .indent {
+        margin-top: 1.5vh;
+      }
+      .bold{
+        font-weight: 600;
+      }
+      .blue { color: #0D2BCD; 
+      }
+      .numbers-list{
+        list-style-type: decimal;
+      }
+      .numbers-list li{
+        margin-left: 1.25vw;
+      }
+      .top-bar{
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 2.5vh;
+      }
+      .arrow{
+        margin-right: 7.8vw;
+        text-decoration: none;
+        color: #272932;
+      }
+      .back-arrow{
+        margin-right: -0.2vw;
+      }
+      .home-btn{
+        font-size: 0.8vw;
+        font-weight: 500;
+        border: 0.2em solid #0D2BCD;
+        color: #0D2BCD;
+        border-radius: 2vh;
+        width: 6em;
+        padding: 0.1vh 0.5vw;
+        text-align: center;
+        text-decoration: none;
+      }
+      .home-btn:hover{
+        background-color:#DDDEE4;
+        font-weight: 700;
+      }
+      .arrow:hover{
+        color:#0D2BCD;
+        animation: arrow-load 2s infinite;
+      }
+      @keyframes arrow-load{
+        0%{}
+        33%{
+          transform: translateX(-8px);
+        }
+        66%{
+          transform: translateX(0);
+        }
+        100%{}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project-box">
+
+      <!-- ── LEFT PANEL ── -->
+      <div class="left-panel">
+        <div class="top-bar">
+          <a href="../index.html#tinas-grill" class="arrow">
+            <span class="back-arrow">&lt;</span>&lt;
+          </a>
+          <a href="../index.html" class="home-btn">Home</a>
+        </div>
+
+        <p class="proj-name">TINA'S GRILL<br>WEBSITE</p>
+        <p class="proj-date">2025.03.03</p>
+
+        <p class="proj-meta">
+          <strong>Task:</strong> Choose a business whose website does not
+          reach its full potential and redesign it
+        </p>
+        <p class="proj-meta">
+          <strong>Duration:</strong> 2 months
+        </p>
+
+        <div class="software-icon">
+          <img src="assets/photoshop.png" alt="Adobe Photoshop Logo">
+          <img src="assets/illustrator.png" alt="Adobe Illustrator Logo">
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-section">
+          <hr class="tl-divider">
+          <div class="tl-items">
+            <div class="tl-item active" data-section="0">
+              <div class="tl-dot"></div>
+              <div class="tl-label">OLD/NEW COMPARISON</div>
+            </div>
+            <div class="tl-item" data-section="1">
+              <div class="tl-dot"></div>
+              <div class="tl-label">OLD DESIGN CRITIQUE</div>
+            </div>
+            <div class="tl-item" data-section="2">
+              <div class="tl-dot"></div>
+              <div class="tl-label">BUSINESS RESEARCH</div>
+            </div>
+            <div class="tl-item" data-section="3">
+              <div class="tl-dot"></div>
+              <div class="tl-label">UPDATED SITEMAPS</div>
+            </div>
+            <div class="tl-item" data-section="4">
+              <div class="tl-dot"></div>
+              <div class="tl-label">REDESIGN SKETCHES</div>
+            </div>
+            <div class="tl-item" data-section="5">
+              <div class="tl-dot"></div>
+              <div class="tl-label">DESIGN RATIONALE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MIDDLE: Background image strip ── -->
+      <div class="bg-strip">
+        <div class="bg-strip-inner" id="bgStrip">
+          <div class="bg-slide website-slide">
+            <img src="assets/compare-text.png" class="compare-text" alt="compare the two">
+            <div class="website-header">
+              <label>
+                <input type="checkbox" class="toggle" id="version-toggle" checked>
+                <span class="track">
+                  <span class="track-side left">REDESIGN</span>
+                  <span class="track-side right">ORIGINAL</span>
+                  <span class="knob">
+                    <span class="knob-label off">ORIGINAL</span>
+                    <span class="knob-label on">REDESIGN</span>
+                  </span>
+                </span>
+              </label>
+              <img id="descImage" src="assets/new-website-text.png" class="desc-text" alt="">
+            </div>
+            <div class="laptop-frame">
+              <div class="laptop-screen-area new">
+                <iframe id="websiteFrame" src="assets/redesign-website-home.html"></iframe>
+              </div>
+              <img src="assets/laptop-frame.png" alt="Laptop frame">
+            </div>
+          </div>
+          <div class="bg-slide critique-slide">
+            <img src="assets/video-critique-text.png" class="critique-text" alt="">
+            <div class="phone-wrapper">
+              <iframe 
+                class="video-critique"
+                src="https://www.youtube.com/embed/k1EfwZVEsL0"
+                title="Video critique"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <img src="assets/phone-frame.png" alt="Phone frame" class="phone-frame">
+            </div>
+          </div>
+          <section class="scatter-section">
+            <div class="image-pile">
+              <img src="assets/sam.png" class="scatter-img img2">
+              <img src="assets/awards.png" class="scatter-img img5">
+              <img src="assets/beer.png" class="scatter-img img3">
+              <img src="assets/flyers.png" class="scatter-img img4">
+              <img src="assets/hockey-mem.png" class="scatter-img img1">
+            </div>
+          </section>
+          <div class="bg-slide"><img src="assets/sitemaps.png" alt=""></div>
+          <div class="bg-slide"><img src="assets/sketches.jpg" alt=""></div>
+          <div class="bg-slide column-style">
+            <div class="top-gallery">
+              <img src="assets/web-p-1.png" class="webpages" alt="">
+              <img src="assets/web-p-2.png" class="webpages" alt="">
+            </div>
+            <div class="bottom-gallery">
+              <img src="assets/web-p-3.png" class="webpages" alt="">
+              <img src="assets/web-p-4.png" class="webpages" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT PANEL ── -->
+      <div class="right-panel">
+        <div class="panels-strip" id="panelsStrip">
+
+          <!-- 0: Redesign Mockups -->
+          <div class="section-panel" id="mockups">
+            <p class="panel-header">OLD/NEW COMPARISON</p>
+            <div class="panel-divider"></div>
+            <p class="project-info">
+              <span class="project-title">The original website and <br>the 4 redesigned pages</span><br><br>
+              <i>Navigate the websites using the navigation bar and compare the two using the toggle.</i><br><br>
+              This project taught me a lot about my own creative process and develop a new sketching method
+              using a "building block" method which I now use very often in other design projects. <br><br>This also
+              introduced me to sitemaps and the UI/UX components of web design which sparked my interest in the field.
+              <br><br>I really enjoyed this project: using my bold design style and interest in hockey to create a website
+              for a small local restaurant I know.
+            </p>
+          </div>
+
+          <!-- 1: Old Design Critique -->
+          <div class="section-panel" id="critique">
+            <p class="panel-header">OLD DESIGN CRITIQUE</p>
+            <div class="panel-divider"></div>
+            <ul class="project-info">
+              <li>
+                <span class="project-title">Home:</span> large slideshow images have poor resolution which makes
+                the food look unappetizing. Lack of text hierarchy and contradicting information makes it difficult
+                for users to find information quickly. The tone does not match other pages or the energy of the
+                brand. As this page is users' first impression of the company, the issues need to be addressed.
+              </li>
+              <li>
+                <span class="project-title">Menu:</span> excessive amount of text, visually monotonous, and large
+                amount of missing information like the dessert or drinks menu (shocking since this is a bar). The
+                menu being simply a collection of pdf pages feels low-effort and unprofessional.
+              </li>
+              <li>
+                <span class="project-title">Gallery:</span> lack of alt tags and no image descriptions. The gallery
+                images only feature food, none of the interior (important for dine-in restaurants) and event images.
+                This is a missed opportunity to show some of the store's personality.
+              </li>
+              <li>
+                <span class="project-title">Contact:</span> redundant — the whole content of the page can also be
+                found at the bottom of the landing page.
+              </li>
+            </ul>
+            <p class="project-info indent bold">
+              Tina’s Grill website has three big problems:
+            </p>
+            <ul class="numbers-list project-info indent">
+              <li>The older style and dull appearance</li>
+              <li>The missing information</li>
+              <li>The inefficient information layout</li>
+            </ul>
+          </div>
+
+          <!-- 2: Business Research -->
+          <div class="section-panel" id="research">
+            <p class="panel-header">BUSINESS RESEARCH</p>
+            <div class="panel-divider"></div>
+            <p class="project-info">
+              The first step to finding the brand's values and desired image was to visit the restaurant. <br><br>Going there 
+              for the first time with my brother for lunch, I had the chance to talk with the owner, Sam Saberi, who was
+              our waiter. We talked about how he started his career in the food industry and later opened his own restaurant
+              with his father. <br><br>Visiting the location I also saw the many awards Sam and Tina's Grill had won since their
+              opening like: Citizen of the Year Award, Best Wings in Town, and Good Business Award. <br><br>What shocked me the most
+              was the amount of hockey memorabilia Sam had collected and displayed in the restaurant, it was everywhere! His
+              favourite team was obviously the NHL's Philadelphia Flyers and the MLB's Blue Jays. <br><br>Going also allowed me to 
+              see how Sam and his team worked and how they greeted their customers by their names, like they we're friends.
+              It did not feel like a business transaction but like a big family barbecue. 
+            </p>
+          </div>
+
+          <!-- 3: Updated Sitemaps -->
+          <div class="section-panel" id="sitemaps">
+            <p class="panel-header">UPDATED SITEMAPS</p>
+            <div class="panel-divider"></div>
+            <p class="project-info">
+              <span class="project-title">Planning:</span> one of the big problems identified in the critique was
+              the amount of missing information. To keep the website organized and navigation intuitive, this would
+              mean redesigning the sitemap. Notably, adding a bar and dessert section on the menu page, swapping the
+              Contact Us page for About Us, showcasing awards, events and family story.
+              <br><br>
+              <span class="project-title">Result:</span> the new sitemap is much more complex but the result is
+              navigation that feels intuitive.
+            </p>
+            <ul class="project-info indent">
+              <li><span class="project-title">Home:</span> now features daily specials and favourites to showcase the food</li>
+              <li><span class="project-title">Menu:</span> now has all the information it should and is neatly divided into the bar menu and grill menu</li>
+              <li><span class="project-title">Gallery:</span> features pictures of the interior, events and the bar so users get a sense of where they are going and who the owners are</li>
+              <li><span class="project-title">About Us:</span> replaces the Contact Us page: a new addition that showcases awards, the family's story and community events</li>
+              <li><span class="project-title">Booking:</span> now its own page instead of being a popup form, making it easier for users to access from anywhere on the website since Tina’s is a by-reservation only restaurant</li>
+            </ul>
+          </div>
+
+          <!-- 4: Redesign Sketches -->
+          <div class="section-panel" id="sketches">
+            <p class="panel-header">REDESIGN SKETCHES</p>
+            <div class="panel-divider"></div>
+            <p class="project-info"><span class="project-title">The Big Idea: </span>one thing that was clear from the start was that I wanted to bring
+              some life to this website: bold colours, energetic graphics to give it a look that says "Come watch a game with us!"
+              Because this small town restaurant is first and foremost a spot for the community to meet over good food. As a hockey
+              fan myself, I decided to focus the owner's love for the sport. This gives the whole website fun personality with hockey
+              themed taglines and section headers like: "Taking Home the Trophies" or "Score Big."
+              <br><br>
+              <span class="project-title">Process: </span>I started by making large detailed 
+              sketches before finding that I would often change my mind halfway through or make mistakes and have to start the whole page over
+              again which was quite tiresome. So, I decided to instead use smaller square papers and sketch individual sections of the landing
+              page like the header, pitch, favourites, come visit, and specials. This way, I could assemble
+              the smaller papers in various orders and try different combinations without having to redraw the whole layout each time.
+            </p>
+          </div>
+
+          <!-- 5: Design Rationale -->
+          <div class="section-panel" id="rationale">
+            <p class="panel-header">DESIGN RATIONALE</p>
+            <div class="panel-divider"></div>
+            <div class="project-info">
+              <p class="project-title"> Design Improvements:</p>
+              <ul>
+                <li>Enhanced readability</li>
+                <li>Stronger graphics & colours</li>
+                <li>Emphasis on restaurant's fun tone & social aspect</li>
+                <li>Hockey imagery and language enhances the sports bar theme</li>
+                <li>Images of the interior to establish the atmosphere</li>
+                <li>Picture of the owners to build trust</li>
+              </ul>
+              <p class="project-title">Content Improvements: </p>
+              <ul>
+                <li>No missing information</li>
+                <li>About Us page instead of useless Contact Us</li>
+                <li>Family history behind the restaurant</li>
+                <li>Community events section to show involvement and authenticity</li>
+                <li>Menu page divided into tabs for easy navigation</li>
+              </ul>
+              <p class="project-title">Usability Improvements: </p>
+              <ul>
+                <li>Dynamic "Today's Hours" feature at the top of the page instead of at the bottom</li>
+                <li>Large "Book A Table" button for easy access</li>
+                <li>Menu tabs make the page less text-heavy</li>
+                <li>Image descriptions for all images on the website for accessibility</li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /panels-strip -->
+      </div><!-- /right-panel -->
+
+    </div><!-- /project-box -->
+    <script>
+      var items       = document.querySelectorAll('.tl-item');
+      var panels      = document.querySelectorAll('.section-panel');
+      var panelsStrip = document.getElementById('panelsStrip');
+      var bgStrip     = document.getElementById('bgStrip');
+      var scrollHint  = document.getElementById('scrollHint');
+      var total       = items.length;
+      var scrollY     = 0;
+      var sectionTops = [];
+      var maxScroll   = 0;
+
+      function measureSections() {
+        sectionTops = [];
+        var offset = 0;
+        for (var i = 0; i < panels.length; i++) {
+          sectionTops.push(offset);
+          offset += panels[i].offsetHeight;
+        }
+        panelsStrip.style.height = offset + 'px';
+        bgStrip.style.height = 'auto';
+        maxScroll = Math.max(0, offset - window.innerHeight);
+      }
+
+      function setScroll(y) {
+        scrollY = Math.max(0, Math.min(maxScroll, y));
+        panelsStrip.style.transform = 'translateY(' + (-scrollY) + 'px)';
+        bgStrip.style.transform     = 'translateY(' + (-scrollY) + 'px)';
+
+        var idx = 0;
+        for (var i = 0; i < sectionTops.length; i++) {
+          if (scrollY >= sectionTops[i] - 10) idx = i;
+        }
+        for (var j = 0; j < items.length; j++) {
+          items[j].classList.toggle('active', j === idx);
+        }
+        if (scrollHint) {
+          scrollHint.style.opacity = scrollY >= maxScroll - 5 ? '0' : '1';
+        }
+        updateCritique();
+      }
+
+      // Wheel — free scroll
+      function onWheel(e) {
+        e.preventDefault();
+        setScroll(scrollY + e.deltaY);
+      }
+      window.addEventListener('wheel', onWheel, { passive: false });
+
+      // Timeline clicks — animated scroll to section
+      for (var i = 0; i < items.length; i++) {
+        (function(item) {
+          item.addEventListener('click', function() {
+            var target = sectionTops[parseInt(item.getAttribute('data-section'))];
+            var start  = scrollY;
+            var dist   = target - start;
+            var dur    = 600;
+            var t0     = null;
+            function step(ts) {
+              if (!t0) t0 = ts;
+              var p    = Math.min((ts - t0) / dur, 1);
+              var ease = p < 0.5 ? 2 * p * p : -1 + (4 - 2 * p) * p;
+              setScroll(start + dist * ease);
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        })(items[i]);
+      }
+
+      // Touch drag
+      var touchLastY = null;
+      window.addEventListener('touchstart', function(e) {
+        touchLastY = e.touches[0].clientY;
+      }, { passive: true });
+      window.addEventListener('touchmove', function(e) {
+        if (touchLastY === null) return;
+        var diff = touchLastY - e.touches[0].clientY;
+        touchLastY = e.touches[0].clientY;
+        setScroll(scrollY + diff);
+      }, { passive: true });
+      window.addEventListener('touchend', function() {
+        touchLastY = null;
+      }, { passive: true });
+
+      // Remeasure on resize
+      window.addEventListener('resize', function() {
+        measureSections();
+        setScroll(scrollY);
+      });
+
+      // Initial measure — wait a tick for fonts to load
+      requestAnimationFrame(function() {
+        measureSections();
+      });
+      
+      const pile = document.querySelector(".image-pile");
+      const section = document.querySelector(".scatter-section");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              pile.classList.add("scatter");
+            } else {
+              pile.classList.remove("scatter");
+            }
+          });
+        },
+        {
+          threshold: 0.8
+        }
+      );
+      observer.observe(section);
+      const deviceStage = document.querySelector('.device-stage');
+      if (deviceStage) {
+        const deviceObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) deviceStage.classList.add('devices-visible');
+            else deviceStage.classList.remove('devices-visible');
+          });
+        }, { threshold: 0.45 });
+        deviceObserver.observe(deviceStage);
+      }
+      const laptopScreens = document.querySelectorAll('.laptop-screen-area');
+      laptopScreens.forEach(function(screen) {
+        screen.addEventListener('mouseenter', function() {
+          window.removeEventListener('wheel', onWheel);
+        });
+        screen.addEventListener('mouseleave', function() {
+          window.addEventListener('wheel', onWheel, { passive: false });
+        });
+      });
+      const critiqueSlide = document.querySelector('.critique-slide');
+      function updateCritique() {
+        const critiqueStart = window.innerHeight * 0.8;
+        const critiqueEnd   = window.innerHeight * 1.4;
+        if (scrollY >= critiqueStart && scrollY < critiqueEnd) {
+          critiqueSlide.classList.add('critique-visible');
+        } else {
+          critiqueSlide.classList.remove('critique-visible');
+        }
+      }
+      // WEBSITE TOGGLE
+      const pageMap = {
+        "redesign-website-home.html": "./assets/tinas-website-main.html",
+        "redesign-website-menu.html": "./assets/tinas-website-menu.html",
+        "redesign-website-gallery.html": "./assets/tinas-website-gallery.html",
+        "redesign-website-about.html": "./assets/tinas-website-contact.html"
+      };
+
+      const reverseMap = {
+        "tinas-website-main.html": "./assets/redesign-website-home.html",
+        "tinas-website-menu.html": "./assets/redesign-website-menu.html",
+        "tinas-website-gallery.html": "./assets/redesign-website-gallery.html",
+        "tinas-website-contact.html": "./assets/redesign-website-about.html"
+      };
+      for (const key in pageMap) {
+        reverseMap[pageMap[key]] = key;
+      }
+      function showSite(version) {
+        const frame = document.getElementById("websiteFrame");
+        let currentSrc;
+        try {
+          currentSrc = frame.contentWindow.location.pathname.split("/").pop();
+        } catch (e) {
+          currentSrc = frame.getAttribute("src");
+        }
+        if (version === "old" && pageMap[currentSrc]) {
+          frame.src = pageMap[currentSrc];
+          descImage.src = "./assets/old-website-text.png";
+        }
+        if (version === "new" && reverseMap[currentSrc]) {
+          frame.src = reverseMap[currentSrc];
+          descImage.src = "./assets/new-website-text.png";
+        }
+      }
+      document.getElementById('version-toggle').addEventListener('change', function() {
+        showSite(this.checked ? 'new' : 'old');
+      });
+    </script>
+  </body>
+</html>
