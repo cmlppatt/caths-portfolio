@@ -91,13 +91,20 @@
         width: 300px;
         height: 300px;
       }
-      .scatter-img {
+      .image-pile .scatter-img {
         position: absolute;
         width: 300px;
+        height: auto;
+        max-width: none;
+        object-fit: unset;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) rotate(0deg);
         transition: transform 1s ease;
+      }
+      .image-pile .img6 {
+        width: 400px;
+        height: auto;
       }
       /* scattered positions */
       .image-pile.scatter .img1 {
@@ -122,8 +129,7 @@
       }
       .image-pile.scatter .img6 {
         /* carpet */
-        transform: translate(0px, -470px) rotate(-7deg);
-        width: 400px;
+        transform: translate(0px, -470px) rotate(-7deg);     
       }
       .image-pile.scatter .img7 {
         /* racecar  x y */
