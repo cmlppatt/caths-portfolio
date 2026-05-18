@@ -573,19 +573,12 @@
         font-family: "IBM Plex Sans", roboto, sans-serif;
         color:#DDDEE4;
       }
-      .pocket-pic {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        top: -3%;
-        left: 0%;
-        opacity: 1;
-        z-index: -1;
-      }
       .orange{
         color:#F26444;
       }
       .contact-left-panel{
+        position: relative;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         width: 55%;
@@ -608,6 +601,18 @@
         line-height: 1;
         font-size: 2vw;
       }
+      .contact-wrapper{
+        position: absolute;
+        top: -3%;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+      }
+      .contact-bg{
+        width: 100%;
+        height: auto;
+        display: block;
+      }
       .email{
         position: absolute;
         z-index: 2;
@@ -621,20 +626,19 @@
         text-decoration: none;
         line-height: 1;
       }
-      .email:hover{
-        color:#F26444;
-      }
       .phone{
         position: absolute;
         z-index: 2;
-        top: 43%;
-        left: 62.5%;
+        top: 39.5%;
+        left: 62.2%;
         font-size: 1.7vw;
         transform: rotate(5deg);
         color:#272932;
         font-weight: 500;
-        text-decoration: none;
         line-height: 1;
+      }
+      .email:hover{
+        color:#F26444;
       }
     </style>
   </head>
@@ -844,14 +848,23 @@
     </div>
     <section id="contact">
       <div class="contact-section">
-         <img src="jeans-pocket.jpg" class="pocket-pic" alt="Jeans jacket pocket with photostrip in it. The first photostrip frame has the email cmlppatt@uwaterloo.ca
-         the second has my phone number 905-751-5585, and the third frame has a toy pigeon staring back at the viewer.">
-        <div class="contact-left-panel">
-          <p class="contact-text-big">YOU'VE GOT ME IN YOUR <span class="orange">BACK POCKET</span></p>
-          <p class="located-text">I am currently located in Kitchener,<br> let's have a coffee chat!</p>
+        <div class="contact-wrapper">
+          <img src="jeans-pocket.jpg" class="contact-bg" alt="Jeans jacket pocket with photostrip in it.">
+          <a href="mailto:cmlppatt@uwaterloo.ca" class="email">
+            cmlppatt<br>@uwaterloo.ca
+          </a>
+          <p class="phone">905-751-5585</p>
         </div>
-        <a href="mailto:cmlppatt@uwaterloo.ca" class="email">cmlppatt<br>@uwaterloo.ca</a>
-        <p class="phone">905-751-5585</p>
+        <div class="contact-left-panel">
+          <p class="contact-text-big">
+            YOU'VE GOT ME IN YOUR 
+            <span class="orange">BACK POCKET</span>
+          </p>
+          <p class="located-text">
+            I am currently located in Kitchener,<br>
+            let's have a coffee chat!
+          </p>
+        </div>
       </div>
     </section>
     <button class="home-float">&uarr;</button>
