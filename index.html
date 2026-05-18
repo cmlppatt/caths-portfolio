@@ -96,7 +96,7 @@
       .scroll-to-explore{
         font-weight: 300;
         margin-top: 8vh;
-        font-size: clamp(0px, 1.5vw, 16px);
+        font-size: 1vw;
         position: absolute;
         color: #FCF4ED;
         z-index: 1;
@@ -111,7 +111,7 @@
       .menu-header{
         margin-right: 2vw;
         margin-left: 1vw;
-        font-size: clamp(0px, 1.5vw, 24px);
+        font-size: 1.5vw
       }
       .logo-menu-img{
         width: 3vw;
@@ -130,7 +130,7 @@
       .menu-directory {
         margin-top: auto;
         padding-bottom: 5vh;
-        font-size: clamp(0px, 3vw, 48px);
+        font-size: 3vw;
       }
       .menu-item {
         border-bottom: 0.5vh solid #0D2BCD;
@@ -147,7 +147,7 @@
         margin-bottom: 1vh;
       }
       .menu-item-description {
-        font-size: clamp(0px, 1.5vw, 24px);
+        font-size: 1.5vw;
         font-weight: 300;
         text-align: right;
         margin-right: 2vw;
@@ -167,7 +167,6 @@
         height: 100vh;
         color: #0D2BCD;
         font-family: "IBM Plex Sans", roboto, sans-serif;
-        font-size: clamp(0px, 2vw, 48px);
         font-weight: 600;
       }
       .project-link {
@@ -178,10 +177,10 @@
         color: #FCF4ED;
         position: relative;
         z-index: 1;
-        font-size: clamp(0px, 5vw, 48px);
+        font-size: 4vw;
         width: 25%;
         padding: 0 2vw;
-        line-height: 3vw;
+        line-height: 3.5vw;
         top: 20%;
         pointer-events: none;
       }
@@ -191,21 +190,22 @@
         line-height: 1.5vw;
         font-family: inter, roboto, sans-serif;
         color: #DDDEE4;
-        font-size: clamp(0px, 1.5vw, 24px);
+        font-size: 1.5vw;
         font-weight: 300;
       }
       .project-skills {
         margin-top: 1vh;
       }
       .skills-tag {
-        display: inline;
-        font-size: 1.3vw;
+        display: inline-block;
+        font-size: 1.2vw;
+        line-height: 4.5vh;
         font-weight: 500;
         border: 0.15em solid #0D2BCD;
         color: rgba(221, 222, 228, 0.8);
         border-radius: 2vh;
-        width: 8em;
-        padding: 0.3vw 2vw;
+        padding: 0vw 2vw;
+        margin-bottom: -1vh;
       }
       .image-switcher-tina{
         position: relative;
@@ -251,7 +251,7 @@
         z-index: 2;
         font-weight: 300;
         margin-top: 8vh;
-        font-size: clamp(0px, 1.5vw, 16px);
+        font-size: 1vw;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -299,7 +299,8 @@
         color: #F26444;
       }
       .about-me-text{
-        line-height: 1.5vw;
+        font-size: 1.2vw;
+        font-weight: 300;
         font-family: "IBM Plex Sans", roboto, sans-serif;
         color: #272932;
         display: flex;
@@ -326,6 +327,8 @@
         padding-right: 2vw;
         padding-left: 2vw;
         position: relative;
+        font-size: 1.2vw;
+        font-weight: 300;
       }
       .vinyl-wrapper{
         position: relative;
@@ -485,7 +488,7 @@
         display: flex;
         flex-direction: row;
         width: 55%;
-        margin-top: -27vh;
+        margin-top: -28vh;
         margin-left: -1vw;
       }
       .skills-section-2{
@@ -515,7 +518,7 @@
       .baby-me-text{
         width: 220%;
         height: 120%;
-        margin-top: -20vh;
+        margin-top: -18vh;
         transform: rotate(30deg);
         margin-left: -25.5vw;
         clip-path: inset(220px 340px 130px 250px);
@@ -523,7 +526,7 @@
       .hockey-pic{
         width: 230%;
         margin-left: -13vw;
-        margin-top: -4vh;
+        margin-top: -2vh;
         transform: rotate(4deg);
         clip-path: inset(20px 190px 10px 190px);
       }
@@ -574,7 +577,7 @@
         position: absolute;
         width: 100%;
         height: auto;
-        top: 0%;
+        top: -3%;
         left: 0%;
         opacity: 1;
         z-index: -1;
@@ -608,10 +611,10 @@
       .email{
         position: absolute;
         z-index: 2;
-        top: 15.5%;
-        left: 66.9%;
+        top: 21%;
+        left: 63.5%;
         text-align:center;
-        font-size: 1.2vw;
+        font-size: 1.7vw;
         transform: rotate(5deg);
         color:#272932;
         font-weight: 500;
@@ -624,9 +627,9 @@
       .phone{
         position: absolute;
         z-index: 2;
-        top: 29%;
-        left: 66.4%;
-        font-size: 1.2vw;
+        top: 43%;
+        left: 62.5%;
+        font-size: 1.7vw;
         transform: rotate(5deg);
         color:#272932;
         font-weight: 500;
@@ -693,11 +696,11 @@
       <div class="about-box">
         <!-- Photo of me -->
         <div class="panel-1">
-          <img src="me-sticker.png" class="me-sticker wiggle-img-me" alt="">
-          <img src="dog-sticker.png" class="dog-sticker wiggle-dog" alt="">
-          <img src="cartoon-me-sticker.png" class="cartoon-sticker wiggle-cartoon" alt="">
-          <img src="oilers-patch.png" class="oilers-sticker wiggle-oilers" alt="">
-          <img src="pigeon-sticker.png" class="pigeon-sticker wiggle-pigeon" alt="">
+          <img src="me-sticker.png" class="me-sticker wiggle-img-me" alt="Picture of Catherine Patterson smiling, wearing an electric blue shirt.">
+          <img src="dog-sticker.png" class="dog-sticker wiggle-dog" alt="Picture of the face of a Bernese Mountain Dog looking happy with wide eyes">
+          <img src="cartoon-me-sticker.png" class="cartoon-sticker wiggle-cartoon" alt="Cartoon picture of Catherine Patterson's face, looking back at the viewer">
+          <img src="oilers-patch.png" class="oilers-sticker wiggle-oilers" alt="Edmonton's Oilers logo patch">
+          <img src="pigeon-sticker.png" class="pigeon-sticker wiggle-pigeon" alt="Picture of a toy pigeon">
         </div>
         <div class="panel-2">
           <div class="big-sentence">
@@ -708,16 +711,15 @@
           </div>
           <div class="about-me-text">
             <div class="panel-2-left">
-              <p> <span class="bold">Websites shouldn't be boring.</span> I love to play with bold,
-              expressive and interactive visual styles. Whether I am writing code or sketching 
-              layouts, I bring a curious, experimental mindset and strive
-              to make digital spaces more engaging, memorable and fun!</p>
+              <p> <span class="bold">Websites shouldn't be boring!</span> I love to play with bold, 
+                expressive and interactive visual styles. I bring a curious and intentional mindset
+                 to web design, exploring how visuals, interaction and code can work together to 
+                 create websites that are immersive and fun.</p>
               <img src="skills.png" class="skills-text" alt="Skills">
             </div>
             <div class="panel-2-right">
-              <p>In my spare time, for the past 12 years I have been playing hockey for my hometown
-              team, the Aurora Panthers. I love the high energy and teamwork of the game. 
-              No, I am not a Leafs fan… Go Oilers!</p>
+              <p>When I'm not working on creative projects, I'm probably on the ice. I’ve spent 12
+                 years growing as a hockey player with the Aurora Panthers. No I am not a Leafs fan... Go Oilers!!</p>
               <div class="hockey-pics">
                 <img src="baby-hockey.png" class="hockey-pic" alt="Baby picture of Catherine all dressed in
                   hockey gear, smiling broadly">
@@ -727,20 +729,20 @@
           </div>
           <div class="skills-section-1">
             <img src="photoshop-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="illustrator-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="indesign-skill.png" class="skills-icon exception" alt="Adobe Photoshop Logo">
-            <img src="figma-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
+            <img src="illustrator-skill.png" class="skills-icon" alt="Adobe Illustrator Logo">
+            <img src="indesign-skill.png" class="skills-icon exception" alt="Adobe InDesign Logo">
+            <img src="figma-skill.png" class="skills-icon" alt="Figma Logo">
           </div>
           <div class="skills-section-2">
-            <img src="html-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="css-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="python-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="java-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
+            <img src="html-skill.png" class="skills-icon" alt="HTML Logo">
+            <img src="css-skill.png" class="skills-icon" alt="CSS Logo">
+            <img src="python-skill.png" class="skills-icon" alt="Python Logo">
+            <img src="java-skill.png" class="skills-icon" alt="JavaScript Logo">
           </div>
         </div>
         <div class="panel-3">
           <div class="vinyl-wrapper">
-            <img src="vinyl.png" class="vinyl" alt="">
+            <img src="vinyl.png" class="vinyl" alt="With Heaven On Top, vinyl by Zach Bryan">
             <img src="vinyl_handle.png" class="vinyl-handle" alt="">
           </div>
           <img src="playlist-text.png" class="killer-text" alt="Killer Playlist">
@@ -748,8 +750,8 @@
           have some on! But, when in a crunch, I pull out my secret weapon to get the
           creative juices flowing: French Canadian music. </p>
           <img src="education-text.png" class="education-text" alt="Education">
-          <p>I am a candidate for the bachelor of <span class="bold">Global Business and Digital Arts</span> with
-            honours at the University of Waterloo and am 1 credit away from completing
+          <p>Candidate for the bachelor of <span class="bold">Global Business and Digital Arts</span> with
+            honours at the University of Waterloo and completing
             the <span class="bold">computing minor</span>.</p>
         </div>
       </div>
@@ -778,8 +780,8 @@
         <div class="project-text">
           <p>TINA'S GRILL WEBSITE</p>
           <p class="project-detail">
-            A complete website redesign of a <br>local 
-            sports bar and grill in my <br>hometown of Aurora
+            A complete website redesign of a local 
+            sports bar and grill in my hometown of Aurora
           </p>
           <div class="project-skills">
             <p class="skills-tag">Branding</p>
@@ -791,8 +793,8 @@
             <a href="./tinas-grill/index.html" class="project-link">
             <div class="image-switcher-tina">
               <img src="tinas-grill-mockup.png" class="active mockup-tina-1" alt="Man chopping onions in a dimly lit restaurant kitchen, beside him an open laptop with Tina's Grill home page.">
-              <img src="tinas-grill-mockup-2.png" alt="Man chopping onions in a dimly lit restaurant kitchen, beside him an open laptop with Tina's Grill website featuring a special 'score big' deal.">
-              <img src="tinas-grill-mockup-3.png" alt="Man chopping onions in a dimly lit restaurant kitchen, beside him an open laptop with Tina's Grill about us page.">
+              <img src="tinas-grill-mockup-2.png" alt="Hands typing on a laptop with Tina's Grill About Us page on the screen, dimly lit">
+              <img src="tinas-grill-mockup-3.png" alt="Restaurant kitchen background with fire on the stove, in the foreground a laptop with Tina's Grill Deals page on the screen">
             </div>
           </a> 
         </div>
@@ -802,7 +804,7 @@
         <div class="project-text">
           <p>WHERE'S <br>THE INSPO?</p>
           <p class="project-detail">
-            Magazine exploring my <br>personal design philosophy and<br>style
+            Magazine exploring my personal design philosophy and style
             using inspirations I found around my house 
           </p>
           <div class="project-skills">
@@ -814,9 +816,9 @@
         <div class="project-video">
           <a href="wheres-the-inspo/" class="project-link">
             <div class="image-switcher-mag">
-              <img src="magazine-mockup-rack.png" class="active" alt="">
-              <img src="magazine-mockup-bus.png" alt="">
-              <img src="magazine-mockup-street.png" alt="">
+              <img src="magazine-mockup-rack.png" class="active" alt="Magazine rack in naturally lit store, with a copy of Where's the Inspo? magazine on display.">
+              <img src="magazine-mockup-bus.png" alt="Person holding the Where's the Inspo? magazine sitting in a busy city bus">
+              <img src="magazine-mockup-street.png" alt="City street background with the Where's the Inspo? magazine on the ground">
             </div>
           </a> 
         </div>
@@ -842,8 +844,8 @@
     </div>
     <section id="contact">
       <div class="contact-section">
-        <!-- <img src="pigeon-hypnosis.gif" class="pigeon-hypno" alt=""> -->
-         <img src="jeans-pocket.jpg" class="pocket-pic" alt="">
+         <img src="jeans-pocket.jpg" class="pocket-pic" alt="Jeans jacket pocket with photostrip in it. The first photostrip frame has the email cmlppatt@uwaterloo.ca
+         the second has my phone number 905-751-5585, and the third frame has a toy pigeon staring back at the viewer.">
         <div class="contact-left-panel">
           <p class="contact-text-big">YOU'VE GOT ME IN YOUR <span class="orange">BACK POCKET</span></p>
           <p class="located-text">I am currently located in Kitchener,<br> let's have a coffee chat!</p>
