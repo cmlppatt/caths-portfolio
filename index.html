@@ -266,7 +266,8 @@
       .about-box {
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: auto;
+        min-height: unset;
         overflow: hidden;
         position: relative;
         font-family: "IBM Plex Sans", roboto, sans-serif;
@@ -274,15 +275,38 @@
         color: #272932;
         box-sizing: border-box;
         background-image: url(jeans.png);
-      }
-      .panel-1{
-        display:inline;
-        width: 35%;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 3vh;
       }
       .panel-2{
         width: 45%;
         display: flex;
         flex-direction: column;
+        gap: 2vh;
+      }
+      .panel-3{
+        width: 15%;
+        position: relative;
+        padding-left: 2vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0vh;
+        font-size: 1.2vw;
+        font-weight: 300;
+      }
+      .killer-text{
+        width: 110%;
+        position: static;
+        margin: -3vh 0 -5vh -1vw;
+        clip-path: inset(12% 0% 25% 0%);
+      }
+      .education-text{
+        width: 100%;
+        position: static;
+        margin: -4vh 0 -2vh -1vw;
+        clip-path: inset(25% 0% 25% 0%);
       }
       .big-sentence {
         color: #0D2BCD;
@@ -290,10 +314,7 @@
         font-size: 3vw;
         font-weight: 600;
         line-height: 1;
-        position: relative;
-        overflow: hidden;
-        margin-bottom: -5vh;
-        margin-top: 2vh;
+        margin: 2vh 0 -3vh 0;
       }
       .special-word {
         color: #F26444;
@@ -306,9 +327,7 @@
         display: flex;
         flex-direction: row;
         gap: 3vw;
-      }
-      .panel-2-left{
-        width: 55%;
+        align-items: flex-start;
       }
       .panel-2-right{
         width: 45%;
@@ -316,32 +335,17 @@
         display: flex;
         flex-direction: column;
       }
-      .education-text{
-        width: 100%;
-        margin-top: -4vh;
-        margin-bottom: -5vh;
-        margin-left: -1.5vw;
-      }
-      .panel-3{
-        width: 15%;
-        padding-right: 2vw;
-        padding-left: 2vw;
-        position: relative;
-        font-size: 1.2vw;
-        font-weight: 300;
-      }
       .vinyl-wrapper{
         position: relative;
         width: 100%;
-        margin-top: 1.5vh;
-        padding-bottom: 4.2vh;
+        margin-top: 1vh;
       }
       .vinyl{
         width: 200%;
         margin-left: -7vw;
         display: block;
         animation: spinVinyl 12s linear infinite;
-        clip-path: inset(0px 0px 0px 00px);
+        clip-path: inset(10% 20% 0% 20%);
       }
       @keyframes spinVinyl {
         from {
@@ -360,57 +364,62 @@
         transform: scaleY(-1) rotate(90deg);
         clip-path: inset(0px 0px 60px 150px);
       }
-      .killer-text{
-        width: 110%;
-        position: absolute;
-        top: 26%;
-        left: 0;
-        clip-path: inset(50px 0px 50px 0px);
+      .panel-1{
+        width: 35%;
+        position: relative;
+        overflow: hidden;
       }
-      .me-sticker{
-        position: absolute;
-        z-index: 2;
-        top: -7%;
-        left: -22%;
-        width: 75%;
-        transform: rotate(4deg);
-        clip-path: inset(100px 300px 30px 320px)
+      .sticker-collage{
+        position: relative;
+        width: 100%;
+        height: 100%;
       }
-      .dog-sticker{
-        position: absolute;
-        transform: rotate(-15deg);
-        z-index: 5;
-        top: 50%;
-        left: -7%;
-        width: 30%;
-        clip-path: inset(0px 120px 0px 120px)
-      }
-      .cartoon-sticker{
-        position: absolute;
-        transform: rotate(16deg);
-        z-index: 6;
-        top: 69%;
-        left: 8%;
-        width: 25%;
-        clip-path: inset(8px 140px 8px 0px)
-      }
-      .oilers-sticker{
-        position: absolute;
-        z-index: 4;
-        top: 50%;
-        left: 5%;
-        width: 40%;
-        transform: rotate(10deg);
-        clip-path: inset(40px 190px 40px 190px)
-      }
+      .me-sticker,
+      .dog-sticker,
+      .cartoon-sticker,
+      .oilers-sticker,
       .pigeon-sticker{
         position: absolute;
+      }
+      .me-sticker{
+        z-index: 2;
+        top: -2vw;
+        left: -20vw;
+        width: 75vw;
+        transform: rotate(4deg);
+        clip-path: inset(18% 28% 8% 30%)
+      }
+      .dog-sticker{
+        z-index: 2;
+        top: 30vw;
+        left: -7vw;
+        width: 30vw;
+        transform: rotate(-15deg);
+        clip-path: inset(0% 28% 0% 28%);
+      }
+      .cartoon-sticker{
+        z-index: 3;
+        top: 32vw;
+        left: 10vw;
+        width: 25vw;
+        transform: rotate(16deg);
+        clip-path: inset(2% 40% 2% 10%);
+      }
+      .oilers-sticker{
+        z-index: 4;
+        top: 28vw;
+        left: 7vw;
+        width: 40vw;
+        transform: rotate(10deg);
+        clip-path: inset(10% 30% 10% 30%);
+      }
+      .pigeon-sticker{
         z-index: 5;
-        width: 35%;
+        top: 13vw;
+        left: -7vw;
+        width: 30vw;
         transform: rotate(-18deg) scaleX(-1);
-        top: 19%;
-        left: -14%;
-        clip-path: inset(50px 130px 80px 130px)
+        clip-path: inset(12% 30% 18% 30%);
       }
       .bold{
         font-weight: 500;
@@ -480,55 +489,68 @@
         75%  { transform: scaleY(-1) rotate(203deg); }
         100% { transform: scaleY(-1) rotate(198deg); }
       }
+      .panel-2-left{
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .panel-2-left p,
+      .panel-2-right p,
+      .panel-3 p{
+        margin-top: 0;
+      }
+      .skills-block{
+        margin-top: 1vh;
+        margin-left: 0;
+      }
       .skills-text{
         width: 45%;
-        margin-left: -1.8vw; 
+        margin: 0 0 0.5vh 0;
+        display: block;
+        transform: translateX(-1.5vw);
       }
-      .skills-section-1{
-        display: flex;
-        flex-direction: row;
-        width: 55%;
-        margin-top: -28vh;
-        margin-left: -1vw;
-      }
+      .skills-section-1,
       .skills-section-2{
         display: flex;
-        flex-direction: row;
-        width: 55%;
-        margin-left: -1vw;
+        align-items: center;
+        justify-content: flex-start;
+        width: fit-content;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(-1.5vw);
       }
-      .skills-section-1 img{
-        overflow: hidden;
-        object-fit: cover;
-        justify-content: center;
-      }
-      .skills-section-2 img{
-        overflow: hidden;
-        object-fit: cover;
-        justify-content: center;
+      .skills-section-2{
+        margin-top: -0.5vh;
       }
       .skills-icon{
-        margin-left: -2vw;
-        margin-right: -2vw;
+        width: 40%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        margin: 0 -3vw 0 0;
       }
       .hockey-pics{
-        display: flex;
-        flex-direction: row;
-      }
-      .baby-me-text{
-        width: 220%;
-        height: 120%;
-        margin-top: -18vh;
-        transform: rotate(30deg);
-        margin-left: -25.5vw;
-        clip-path: inset(220px 340px 130px 250px);
+        position: relative;
+        width: 100%;
+        height: fit-content;
       }
       .hockey-pic{
         width: 230%;
         margin-left: -13vw;
         margin-top: -2vh;
         transform: rotate(4deg);
-        clip-path: inset(20px 190px 10px 190px);
+        clip-path: inset(5% 30% 3% 30%);
+        display: block;
+      }
+      .baby-me-text{
+        position: absolute;
+        width: 220%;
+        top: -12vh;
+        left: 2vw;
+        transform: rotate(30deg);
+        clip-path: inset(45% 50% 30% 35%);
       }
       /* DIVIDER ############################################ */
       .text-divider {
@@ -569,7 +591,9 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        height: 100vh;
+        height: auto;
+        max-height: 100vh;
+        overflow: hidden;
         font-family: "IBM Plex Sans", roboto, sans-serif;
         color:#DDDEE4;
       }
@@ -577,34 +601,33 @@
         color:#F26444;
       }
       .contact-left-panel{
-        position: relative;
-        z-index: 2;
+        position: absolute;
+        z-index: 10;
         display: flex;
         flex-direction: column;
-        width: 55%;
-        margin-top: 15vh;
+        width: 50%;
+        top: 30%;
+        left: 2vw;
         text-shadow: 2px 2px 10px #272932;
       }
       .contact-text-big{
         color: #FCF4ED;
-        font-family: "IBM Plex Sans", roboto, sans-serif;
         font-size: 8vw;
         font-weight: 600;
         line-height: 0.8;
         letter-spacing: -0.05em;
-        margin-bottom: 0vh;
-        padding-left: 2vw;
+        margin: 0;
       }
       .located-text{
-        padding-left: 2.6vw;
+        color: #DDDEE4;
         font-weight: 400;
         line-height: 1;
         font-size: 2vw;
+        margin-top: 2vh;
       }
       .contact-wrapper{
-        position: absolute;
+        position: relative;
         top: -3%;
-        left: 0;
         width: 100%;
         z-index: 1;
       }
@@ -700,11 +723,13 @@
       <div class="about-box">
         <!-- Photo of me -->
         <div class="panel-1">
-          <img src="me-sticker.png" class="me-sticker wiggle-img-me" alt="Picture of Catherine Patterson smiling, wearing an electric blue shirt.">
-          <img src="dog-sticker.png" class="dog-sticker wiggle-dog" alt="Picture of the face of a Bernese Mountain Dog looking happy with wide eyes">
-          <img src="cartoon-me-sticker.png" class="cartoon-sticker wiggle-cartoon" alt="Cartoon picture of Catherine Patterson's face, looking back at the viewer">
-          <img src="oilers-patch.png" class="oilers-sticker wiggle-oilers" alt="Edmonton's Oilers logo patch">
-          <img src="pigeon-sticker.png" class="pigeon-sticker wiggle-pigeon" alt="Picture of a toy pigeon">
+          <div class="sticker-collage">
+            <img src="me-sticker.png" class="me-sticker wiggle-img-me" alt="Picture of Catherine Patterson smiling, wearing an electric blue shirt.">
+            <img src="dog-sticker.png" class="dog-sticker wiggle-dog" alt="Picture of the face of a Bernese Mountain Dog looking happy with wide eyes">
+            <img src="cartoon-me-sticker.png" class="cartoon-sticker wiggle-cartoon" alt="Cartoon picture of Catherine Patterson's face, looking back at the viewer">
+            <img src="oilers-patch.png" class="oilers-sticker wiggle-oilers" alt="Edmonton's Oilers logo patch">
+            <img src="pigeon-sticker.png" class="pigeon-sticker wiggle-pigeon" alt="Picture of a toy pigeon">
+          </div>
         </div>
         <div class="panel-2">
           <div class="big-sentence">
@@ -715,11 +740,25 @@
           </div>
           <div class="about-me-text">
             <div class="panel-2-left">
-              <p> <span class="bold">Websites shouldn't be boring!</span> I love to play with bold, 
+              <p><span class="bold">Websites shouldn't be boring!</span> I love to play with bold, 
                 expressive and interactive visual styles. I bring a curious and intentional mindset
                  to web design, exploring how visuals, interaction and code can work together to 
                  create websites that are immersive and fun.</p>
-              <img src="skills.png" class="skills-text" alt="Skills">
+              <div class="skills-block">
+                <img src="skills.png" class="skills-text" alt="Skills">
+                <div class="skills-section-1">
+                  <img src="photoshop-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
+                  <img src="illustrator-skill.png" class="skills-icon" alt="Adobe Illustrator Logo">
+                  <img src="indesign-skill.png" class="skills-icon" alt="Adobe InDesign Logo">
+                  <img src="figma-skill.png" class="skills-icon" alt="Figma Logo">
+                </div>
+                <div class="skills-section-2">
+                  <img src="html-skill.png" class="skills-icon" alt="HTML Logo">
+                  <img src="css-skill.png" class="skills-icon" alt="CSS Logo">
+                  <img src="python-skill.png" class="skills-icon" alt="Python Logo">
+                  <img src="java-skill.png" class="skills-icon" alt="JavaScript Logo">
+                </div>
+              </div>
             </div>
             <div class="panel-2-right">
               <p>When I'm not working on creative projects, I'm probably on the ice. I’ve spent 12
@@ -730,18 +769,6 @@
                 <img src="baby-me-text.png" class="baby-me-text" alt="Baby me!">
               </div>
             </div>
-          </div>
-          <div class="skills-section-1">
-            <img src="photoshop-skill.png" class="skills-icon" alt="Adobe Photoshop Logo">
-            <img src="illustrator-skill.png" class="skills-icon" alt="Adobe Illustrator Logo">
-            <img src="indesign-skill.png" class="skills-icon exception" alt="Adobe InDesign Logo">
-            <img src="figma-skill.png" class="skills-icon" alt="Figma Logo">
-          </div>
-          <div class="skills-section-2">
-            <img src="html-skill.png" class="skills-icon" alt="HTML Logo">
-            <img src="css-skill.png" class="skills-icon" alt="CSS Logo">
-            <img src="python-skill.png" class="skills-icon" alt="Python Logo">
-            <img src="java-skill.png" class="skills-icon" alt="JavaScript Logo">
           </div>
         </div>
         <div class="panel-3">
